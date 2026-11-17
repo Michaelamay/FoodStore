@@ -10,10 +10,10 @@ $password = "root";
 $dbName = "FoodDB";
 */
 
-$servername = "localhost:3306";
-$username = "mealntvy_michaelamay";
-$password = "rdGtQHHOFSrx";
-$dbName = "mealntvy_database";
+$servername = getenv('DB_HOST') ?: 'localhost:3306';
+$username   = getenv('DB_USER') ?: '';
+$password   = getenv('DB_PASS') ?: '';
+$dbName     = getenv('DB_NAME') ?: '';
 
 //Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbName);
