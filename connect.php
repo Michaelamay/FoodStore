@@ -10,13 +10,14 @@ $password = "root";
 $dbName = "FoodDB";
 */
 
-$servername = getenv('DB_HOST') ?: 'localhost:3306';
+$servername = getenv('DB_HOST') ?: 'localhost';
+$port       = intval(getenv('DB_PORT') ?: 3306);
 $username   = getenv('DB_USER') ?: '';
 $password   = getenv('DB_PASS') ?: '';
 $dbName     = getenv('DB_NAME') ?: '';
 
 //Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbName);
+$conn = mysqli_connect($servername, $username, $password, $dbName, $port);
 
 //Check connection
 if ($conn->connect_error) {
